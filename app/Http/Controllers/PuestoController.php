@@ -7,9 +7,15 @@ use Illuminate\Http\Request;
 
 class PuestoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public $val;
+
+    public function __construct(){
+         $this->val=[
+            'idpuesto'=> ['required'],
+            'nombrePuesto' =>['required','min:3'],
+            'tipo' => ['required']
+         ];
+    }
     public function index()
     {
         $puestos = Puesto::paginate(5);
@@ -23,7 +29,12 @@ class PuestoController extends Controller
     public function create()
     {
         $puestos = Puesto::paginate(5);
-        return view('puestos.create', compact("puestos"));
+        $puesto = new Puesto;
+        $accion = "C";
+        $des ="";
+        $txtbtn = "Guardar";
+        return view('puestos.frm', compact("puestos","puesto","accion","txtbtn","des"));
+
     }
 
     /**
@@ -32,9 +43,10 @@ class PuestoController extends Controller
     public function store(Request $request)
     {
         //aun no grabamos
-        //return $request;
-        Puesto::create($request->all());
-        return redirect()->route("puestos.index");
+        $val = $request->validate($this->val);
+        Puesto::create($val);
+        
+        return redirect()->route("puestos.index")->with("mensaje","Se inserto correctamente");
     }
 
     /**
@@ -43,7 +55,10 @@ class PuestoController extends Controller
     public function show(Puesto $puesto)
     {
         $puestos = Puesto::paginate(5);
-        return view('puestos.show',compact('puestos','puesto'));
+        $accion = "D";
+        $des = "disabled";
+        $txtbtn = "Confirmar la eliminacion";
+        return view('puestos.frm',compact('puestos','puesto','accion','txtbtn','des'));
     }
 
     /**
@@ -52,7 +67,10 @@ class PuestoController extends Controller
     public function edit(Puesto $puesto)
     {
         $puestos = Puesto::paginate(5);
-        return view('puestos.edit',compact('puestos','puesto'));
+        $accion = "E";
+        $txtbtn = "Actualizar";
+        $des = "";
+        return view('puestos.frm',compact('puestos','puesto','accion','txtbtn','des'));
     }
 
     /**
@@ -60,9 +78,11 @@ class PuestoController extends Controller
      */
     public function update(Request $request, Puesto $puesto)
     {
-        //aqui se actualizaron los datos
-        $puesto->update($request->all());
-        return redirect()->route('puestos.index');
+           //aun no grabamos
+           $val = $request->validate($this->val);
+           //aqui se actualizaron los datos
+           $puesto->update($val);
+           return redirect()->route('puestos.index');
     }
 
     /**

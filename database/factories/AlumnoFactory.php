@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Carreras;
+use App\Models\Carrera;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -24,7 +24,7 @@ class AlumnoFactory extends Factory
             'apellidom' => fake()->lastName(),
             'sexo' =>fake()->randomElement(['M','F']),
             'email' => fake()->email(),
-            'carrera_id' =>Carreras::factory()
+            'carrera_id' =>Carrera::factory()
         ];
     }
 }

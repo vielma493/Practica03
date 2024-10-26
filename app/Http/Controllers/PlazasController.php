@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Plazas;
 use Illuminate\Http\Request;
 
@@ -9,10 +8,15 @@ class PlazasController extends Controller
 {
     public $val;
 
+    public function __construct(){
+        $this->val=[
+           'idplaza'=> ['required'],
+           'nombrePlaza' =>['required','min:3']
+        ];
+   }
     public function index()
     {
         $plazas = Plazas::paginate(5);
-        // return view("alumnos/index",['alumnos'=>$alumnos]);
         return view("plazas/index",compact("plazas"));
     }
 
@@ -36,7 +40,7 @@ class PlazasController extends Controller
     {
         $val = $request->validate($this->val);
         Plazas::create($val);
-        return redirect()->route("plazas.index")->with("mensaje","Se inserto correctament");
+        return redirect()->route("plazas.index")->with("mensaje","Se inserto correctamente");
 
     }
 

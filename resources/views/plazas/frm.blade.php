@@ -40,8 +40,8 @@
       <div class="row mb-3">
         <label for="nombrePlaza" class="col-sm-2 col-form-label">Nombre Plaza: </label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="nombrePlaza" name="nombrePlaza" value="{{old('nombreplaza',$plaza->nombreplaza)}}" {{$des}}>
-          @error("nombreplaza")
+          <input type="text" class="form-control" id="nombrePlaza" name="nombrePlaza" value="{{old('nombrePlaza',$plaza->nombrePlaza)}}" {{$des}}>
+          @error("nombrePlaza")
           <p class="text-danger">Error en: {{$message}}</p>
         @enderror
         </div>

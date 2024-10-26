@@ -2,19 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Carrera;
-use App\Models\Carreras;
-use Illuminate\Database\Seeder;
+use App\Models\Periodo;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
 
-class CarrerasSeeder extends Seeder
+class PeriodoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Carrera::factory(5)->create();
-
+        Periodo::factory(5)->create();
     }
 }

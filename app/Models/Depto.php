@@ -11,6 +11,6 @@ class Depto extends Model
     use HasFactory;
 
     public function carreras(): HasMany{
-        return $this->hasMany(Carreras::class);
+        return $this->hasMany(Carrera::class);
     }
 }

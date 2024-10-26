@@ -81,10 +81,10 @@
             </div>
 
             <div class="row mb-3">
-              <label for="carreraid" class="col-sm-2 col-form-label">ID Carrera: </label>
+              <label for="carrera_id" class="col-sm-2 col-form-label">ID Carrera: </label>
               <div class="col-sm-9">
-                <input type="carreraid" class="form-control" id="carreraid" name="carreraid" value="{{old('carreraid',$alumno->carrera_id)}}" {{$des}}>
-                @error("carreraid")
+                <input type="carrera_id" class="form-control" id="carrera_id" name="carrera_id" value="{{old('carrera_id',$alumno->carrera_id)}}" {{$des}}>
+                @error("carrera_id")
                 <p class="text-danger">Error en: {{$message}}</p>
               @enderror
               </div>

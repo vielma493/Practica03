@@ -36,23 +36,4 @@
 </html>
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).on('click', '.dropdown-item', function (e) {
-        e.preventDefault(); 
-        
-        var url = $(this).data('url'); 
-        
-        $.ajax({
-            url: url,
-            method: 'GET',
-            success: function (data) {
-                // Inserta el contenido cargado dentro del div #dynamic-content
-                $('#dynamic-content').html(data);
-            },
-            error: function () {
-                alert('Ocurrió un error al cargar el contenido.');
-            }
-        });
-    });
-</script>
+

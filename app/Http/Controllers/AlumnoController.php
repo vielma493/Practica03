@@ -10,9 +10,14 @@ class AlumnoController extends Controller
 
     public function __construct(){
          $this->val=[
+            'noctrl'=> ['required','min:8'],
             'nombre' =>['required','min:3'],
             'apellidop' => ['required'],
-            'email' => 'required'
+            'apellidom' => ['required'],
+            'sexo' =>['required'],
+            'email' => 'required',
+            'carrera_id' => 'required'
+
          ];
     }
     /**
@@ -48,7 +53,7 @@ class AlumnoController extends Controller
         $val = $request->validate($this->val);
         Alumno::create($val);
         
-        return redirect()->route("alumnos.index")->with("mensaje","Se inserto correctament");
+        return redirect()->route("alumnos.index")->with("mensaje","Se inserto correctamente");
     }
 
     /**
