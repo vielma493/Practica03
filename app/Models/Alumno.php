@@ -14,6 +14,6 @@ class Alumno extends Model
     protected $fillable = ['noctrl','nombre','apellidop','apellidom','sexo','email','carrera_id'];
 
     public function carrera(): BelongsTo{
-                   return $this->belongsTo(Carreras::class);
+                   return $this->belongsTo(Carrera::class);
     }
 }
