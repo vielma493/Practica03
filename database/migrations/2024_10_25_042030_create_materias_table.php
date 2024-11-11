@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('materias', function (Blueprint $table) {
             $table->id();
             $table->string('idmateria',10);
-            $table->string('nombremateria',25);
+            $table->string('nombremateria',100);
             $table->string('nivel',1);
-            $table->string('nombremediano',15);
-            $table->string('nombrecorto',10);
+            $table->string('nombremediano',40);
+            $table->string('nombrecorto',20);
             $table->string('modalidad',15);
             $table->foreignId("reticula_id",8)->constrained();
             $table->timestamps();

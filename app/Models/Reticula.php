@@ -6,6 +6,7 @@ use App\Models\Carrera;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Reticula extends Model
 {
@@ -15,5 +16,8 @@ class Reticula extends Model
 
     public function carrera(): BelongsTo{
         return $this->belongsTo(Carrera::class);
+}
+    public function materia(): HasMany{
+    return $this->hasMany(Materia::class);
 }
 }

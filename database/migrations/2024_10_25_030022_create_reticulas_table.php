@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('reticulas', function (Blueprint $table) {
             $table->id();
             $table->string('idreticula',10);
-            $table->string('descripcion',25);
+            $table->string('descripcion',40);
             $table->date('fechaenvigor');
             $table->foreignId("carrera_id",8)->constrained();
             $table->timestamps();

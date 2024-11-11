@@ -17,7 +17,11 @@
         <a class="dropdown-item" href="{{ route('periodos.index') }}">Periodos</a>
         <a class="dropdown-item" href="{{ route('plazas.index') }}">Plazas</a>
         <a class="dropdown-item" href="{{ route('puestos.index') }}">Puestos</a>
-        <a class="dropdown-item" href="">Personal</a>
+        <a class="dropdown-item" href="{{ route('edificios.index') }}">Edificios</a>
+        <a class="dropdown-item" href="{{ route('lugars.index') }}">Lugar</a>
+        <a class="dropdown-item" href="{{ route('horas.index') }}">Horas</a>
+        <a class="dropdown-item" href="{{ route('personal_plazas.index') }}">Personal Plazas</a>
+        <a class="dropdown-item" href="{{ route('personals.index')}}">Personal</a>
         <a class="dropdown-item" href="{{ route('deptos.index') }}">Deptos</a>
         <a class="dropdown-item" href="{{ route('carreras.index') }}">Carreras</a>
         <a class="dropdown-item" href="{{ route('reticulas.index') }}">Reticulas</a>

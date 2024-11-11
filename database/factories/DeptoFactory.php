@@ -16,12 +16,21 @@ class DeptoFactory extends Factory
      */
     public function definition(): array
     {
-        $titulo =fake()->Unique()->jobTitle();
+        static $indice =-1;
+        $indice++;
+        $dept =[
+            ['1','Direccion','Direcc.','Dir.'],
+            ['2','Subdireccion','Subdir','Sub.'],
+            ['3','Sistemas y Computacion','Sist. Comp.','S Y C'],
+            ['4','Ingenieria electrica y Electronica','Ing elect y electro.','IEE'],
+            ['5','Ingenieria industrial','Ing ind.','II'],
+            ['6','Ciencias economico-Administrativas','C. Eco. y Admin.','CE Y A']
+        ];
         return [
-            "iddepto"=>fake()->bothify("?#"),
-            "nombredepto"=>$titulo,
-            "nombremediano"=>fake()->lexify(str_repeat("?",15)),
-            "nombrecorto" =>substr($titulo,0,5),
+            "iddepto"=>$dept[$indice][0],
+            "nombredepto"=>$dept[$indice][1],
+            "nombremediano"=>$dept[$indice][2],
+            "nombrecorto" =>$dept[$indice][3],
         ];
     }
 }

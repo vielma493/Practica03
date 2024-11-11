@@ -13,6 +13,6 @@ class PlazasSeeder extends Seeder
      */
     public function run(): void
     {
-        Plazas::factory(10)->create();
+        Plazas::factory(5)->create();
     }
 }

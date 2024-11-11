@@ -17,13 +17,24 @@ class CarreraFactory extends Factory
      */
     public function definition(): array
     {
-        $titulo = fake()->jobTitle();
+        static $indice=-1;
+
+        $indice++;
+        $carr = [
+            ['1','Ingenieria en sistemas computacionales','Ing sist. comp.','ISC','3'],
+            ['2','Ingenieria electronica','Ing elect.','IE','4'],
+            ['3','Ingenieria mecanica','Ing mec.','IM','4'],
+            ['4','Ingenieria mecatronica','Ing mecatr.','IME','4'],
+            ['5','Contador publico','Cont. Pub.','CP','6'],
+            ['6','Ingenieria en gestion empresarial','Ing gest emp.','IGE','5'],
+            ['7','Ingenieria industrial','Ing ind.','II','5']
+        ];
         return [
-            "idcarrera"=>fake()->bothify("????####"),
-            "nombrecarrera"=>$titulo,
-            "nombremediano"=>fake()->lexify(str_repeat("?",15)),
-            "nombrecorto"=>substr($titulo,0,5),
-            "depto_id" => Depto::factory(),
+            "idcarrera"=>$carr[$indice][0],
+            "nombrecarrera"=>$carr[$indice][1],
+            "nombremediano"=>$carr[$indice][2],
+            "nombrecorto"=>$carr[$indice][3],
+            "depto_id" => $carr[$indice][4],
         ];
     }
 }

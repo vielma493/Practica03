@@ -16,4 +16,7 @@ class Alumno extends Model
     public function carrera(): BelongsTo{
                    return $this->belongsTo(Carrera::class);
     }
+     
+    
+
 }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('periodos', function (Blueprint $table) {
             $table->id();
             $table->string("idperiodo",10);
-            $table->string("periodo",20); 
+            $table->string("periodo",30); 
             $table->string("desccorta",20);
             $table->date("fechaini");
             $table->date("fechafin");
