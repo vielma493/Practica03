@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('periodos', function (Blueprint $table) {
             $table->id();
             $table->string("idperiodo",10);
-            $table->string("periodo",30); 
-            $table->string("desccorta",20);
-            $table->date("fechaini");
-            $table->date("fechafin");
+            $table->string("periodo",30)->unique(); 
+            $table->string("desccorta",20)->unique();
+            $table->date("fechaini")->unique();
+            $table->date("fechafin")->unique();
             $table->timestamps();
         });
     }

@@ -69,7 +69,7 @@ class MateriaFactory extends Factory
             ['Metrologia y normalizacion','3','Metr y norma.','MYN','Presencial','2'],
             ['Economia','3','Econ.','EC','Presencial','2'],
             
-            ['Procesos de fabricacion','4','Proc de fabr.','PF','Presencial','2'],
+            ['Procesos de fabricacion','4','Proc de fabr.','PROF','Presencial','2'],
             ['Investigacion de operaciones','4','Inv de op','IO','Presencial','2'],
             
             ['Administracion de proyectos','5','Admin de proy.','ADP','Presencial','2'],
@@ -78,7 +78,7 @@ class MateriaFactory extends Factory
             ['Mercadotecnia','6','Merca.','MT','Presencial','2'],
             ['Administracion del mantenimiento','6','Admin del Mant.','ADM','Presencial','2'],
             
-            ['Planeacion financiera','7','Plan financ.','PF','Presencial','2'],
+            ['Planeacion financiera','7','Plan financ.','PFR','Presencial','2'],
             ['Sistemas de manufactura','7','Sist de man.','SM','Presencial','2'],
             
             ['Relaciones industriales','8','Relac Ind.','RI','Presencial','2'],

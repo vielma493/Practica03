@@ -10,6 +10,8 @@ class Lugar extends Model
 {
     /** @use HasFactory<\Database\Factories\LugarFactory> */
     use HasFactory;
+    protected $fillable = ['nombrelugar', 'nombrecorto', 'edificio_id']; // Campos para asignación masiva
+
 
     public function edificio():BelongsTo{
         return $this->belongsTo(Edificio::class);

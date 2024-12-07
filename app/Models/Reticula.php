@@ -17,7 +17,7 @@ class Reticula extends Model
     public function carrera(): BelongsTo{
         return $this->belongsTo(Carrera::class);
 }
-    public function materia(): HasMany{
+    public function materias(): HasMany{
     return $this->hasMany(Materia::class);
 }
 }

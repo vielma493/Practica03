@@ -1,24 +1,30 @@
 <?php
 
 use App\Models\Materia;
+use App\Models\Periodo;
 use App\Models\Carreras;
+use App\Models\Grupo21359;
+use App\Models\PersonalPlaza;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HoraController;
 use App\Http\Controllers\DeptoController;
+use App\Http\Controllers\GrupoController;
+use App\Http\Controllers\LugarController;
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\PlazasController;
 use App\Http\Controllers\PuestoController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\PeriodoController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TutoriaController;
 use App\Http\Controllers\CarrerasController;
 use App\Http\Controllers\EdificioController;
-use App\Http\Controllers\HoraController;
-use App\Http\Controllers\LugarController;
-use App\Http\Controllers\MateriaAbiertaController;
 use App\Http\Controllers\PersonalController;
-use App\Http\Controllers\PersonalPlazaController;
 use App\Http\Controllers\ReticulaController;
-use App\Models\PersonalPlaza;
+use App\Http\Controllers\Grupo21359Controller;
+use App\Http\Controllers\PersonalPlazaController;
+use App\Http\Controllers\MateriaAbiertaController;
+use App\Http\Controllers\GrupoHorario21359Controller;
 
 Route::get('/alumnos.index', [AlumnoController::class, 'index'])->name('alumnos.index');
 Route::get('/alumnos.create', [AlumnoController::class, 'create'])->name('alumnos.create');
@@ -38,6 +44,7 @@ Route::Post('/puestos.store', [PuestoController::class, 'store'])->name('puestos
 Route::post('/puestos.update/{puesto}', [PuestoController::class, 'update'])->name('puestos.update');
 
 Route::get('/materiasa.index', [MateriaAbiertaController::class, 'index'])->name('materiasa.index');
+Route::post('/materiasa.store', [MateriaAbiertaController::class, 'store'])->name('materiasa.store');
 
 
 Route::get('/deptos.index', [DeptoController::class, 'index'])->name('deptos.index');
@@ -106,6 +113,43 @@ Route::post('/reticulas.destroy/{reticula}', [ReticulaController::class, 'destro
 Route::Post('/reticulas.store', [ReticulaController::class, 'store'])->name('reticulas.store');
 Route::post('/reticulas.update/{reticula}', [ReticulaController::class, 'update'])->name('reticulas.update');
 
+Route::get('/grupos.index', [GrupoController::class, 'index'])->name('grupos.index');
+
+
+Route::get('/grupos21359.index', [Grupo21359Controller::class, 'index'])->name('grupos21359.index');
+Route::get('/grupos21359.create', [Grupo21359Controller::class, 'create'])->name('grupos21359.create');
+Route::get('/grupos21359.edit/{grupo21359}', [Grupo21359Controller::class, 'edit'])->name('grupos21359.edit');
+Route::get('/grupos21359.show/{grupo21359}', [Grupo21359Controller::class, 'show'])->name('grupos21359.show');
+Route::post('/grupos21359.destroy/{grupo21359}', [Grupo21359Controller::class, 'destroy'])->name('grupos21359.destroy');
+Route::Post('/grupos21359.store', [Grupo21359Controller::class, 'store'])->name('grupos21359.store');
+Route::post('/grupos21359.update/{grupo21359}', [Grupo21359Controller::class, 'update'])->name('grupos21359.update');
+
+
+Route::get('/grupos.index', [GrupoController::class, 'index'])->name('grupos.index');
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/tutorias', action: [TutoriaController::class, 'index'])->name('tutorias');
+
+    Route::get('/tutorias.index', [TutoriaController::class, 'index'])->name('tutorias.index');
+    Route::get('/tutorias.create', [TutoriaController::class, 'create'])->name('tutorias.create');
+    Route::post('/tutorias.store', [TutoriaController::class, 'store'])->name('tutorias.store');
+    Route::get('/tutorias.show/{tutoria}', [TutoriaController::class, 'show'])->name('tutorias.show');
+    Route::get('/tutorias.edit/{tutoria}', [TutoriaController::class, 'edit'])->name('tutorias.edit');
+    Route::post('/tutorias.update/{tutoria}', [TutoriaController::class, 'update'])->name('tutorias.update');
+    Route::get('/tutorias/eliminar/{tutoria}', [TutoriaController::class, 'eliminar'])->name('tutorias.eliminar');
+    Route::delete('/tutorias/{tutoria}', [TutoriaController::class, 'destroy'])->name('tutorias.destroy');
+});
+Route::get('/rendimientos', action: [TutoriaController::class, 'index'])->name('rendimientos');
+
+
+Route::get('/grupoHorarios21359.index', [GrupoHorario21359Controller::class, 'index'])->name('grupoHorarios21359.index');
+Route::get('/grupoHorarios21359.create', [GrupoHorario21359Controller::class, 'create'])->name('grupoHorarios21359.create');
+Route::get('/grupoHorarios21359.edit/{grupoHorario21359}', [GrupoHorario21359Controller::class, 'edit'])->name('grupoHorarios21359.edit');
+Route::get('/grupoHorarios21359.show/{grupoHorario21359}', [GrupoHorario21359Controller::class, 'show'])->name('grupoHorarios21359.show');
+Route::post('/grupoHorarios21359.destroy/{grupoHorario21359}', [GrupoHorario21359Controller::class, 'destroy'])->name('grupoHorarios21359.destroy');
+Route::Post('/grupoHorarios21359.store', [GrupoHorario21359Controller::class, 'store'])->name('grupoHorarios21359.store');
+Route::post('/grupoHorarios21359.update/{grupoHorario21359}', [GrupoHorario21359Controller::class, 'update'])->name('grupoHorarios21359.update');
 
 
 Route::get('/periodos.index', [PeriodoController::class, 'index'])->name('periodos.index');
@@ -143,6 +187,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('inicio');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::get('/menu1', function () {
     return view('menu1');

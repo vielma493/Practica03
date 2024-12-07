@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('iddepto',2);
             $table->string("nombredepto",100)->unique();
             $table->string("nombremediano",30)->unique();
-            $table->string("nombrecorto",15);
+            $table->string("nombrecorto",15)->unique();
             $table->timestamps();
         });
     }

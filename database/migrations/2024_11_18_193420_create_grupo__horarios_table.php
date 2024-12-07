@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('edificios', function (Blueprint $table) {
+        Schema::create('grupo__horarios', function (Blueprint $table) {
             $table->id();
-            $table->string('nombreedificio',100)->unique();
-            $table->string('nombrecorto',50);
+            $table->foreignId("grupo_id",8)->constrained();
+            $table->foreignId("lugar_id",8)->constrained();
+            $table->string("dia",25);
+            $table->time("hora");
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('edificios');
+        Schema::dropIfExists('grupo__horarios');
     }
 };
