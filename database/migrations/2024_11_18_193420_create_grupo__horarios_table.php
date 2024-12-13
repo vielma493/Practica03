@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId("grupo_id",8)->constrained();
             $table->foreignId("lugar_id",8)->constrained();
+            $table->foreignId("materia_id",8)->nullable()->constrained();
+            $table->foreignId("personal_id",8)->nullable()->constrained();
+            $table->foreignId("periodo_id",8)->constrained();
             $table->string("dia",25);
             $table->time("hora");
             $table->timestamps();

@@ -39,7 +39,6 @@
             <div class="border rounded p-4 shadow-sm bg-white mb-4">
                 <div class="header">
                     <div class="d-flex align-items-center">
-                        <img src="{{ asset('img/logo-tec.png') }}" width="100px">
                         <div class="ms-3">
                             <h1 class="text-danger fw-bold mb-1">EDUCACIÓN</h1>
                             <p class="mb-0 text-muted">Secretaría de Educación Pública</p>
@@ -61,7 +60,7 @@
                     <label for="departamento" class="form-label">Selecciona Departamento:</label>
                     <select id="departamento" name="depto_id" class="form-select">
                         @foreach ($departamentos as $departamento)
-                            <option value="{{ $departamento->id }}">{{ $departamento->nombreDepto }}</option>
+                            <option value="{{ $departamento->id }}">{{ $departamento->nombredepto }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -94,7 +93,7 @@
                         <label for="carrera" class="form-label">Selecciona Carrera:</label>
                         <select id="carrera" name="carrera_id" class="form-select">
                             @foreach ($carreras as $carrera)
-                                <option value="{{ $carrera->id }}">{{ $carrera->nombreCarrera }}</option>
+                                <option value="{{ $carrera->id }}">{{ $carrera->nombrecarrera }}</option>
                             @endforeach
                         </select>
                     </div>

@@ -16,9 +16,6 @@ return new class extends Migration
             $table->string('grupo',15)->unique();
             $table->string('descripcion',35);
             $table->string('max_alumnos',60);
-            $table->foreignId("periodo_id",8)->constrained();
-            $table->foreignId("materia_id",8)->constrained();
-            $table->foreignId("personal_id",8)->constrained();
             $table->timestamps();
         });
     }
