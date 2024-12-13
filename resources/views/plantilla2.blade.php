@@ -27,7 +27,7 @@
         <a class="dropdown-item" href="{{ route('reticulas.index') }}">Reticulas</a>
         <a class="dropdown-item" href="{{ route('materias.index') }}">Materias</a>
         <a class="dropdown-item" href="{{ route('alumnos.index') }}">Alumnos</a>
-        
+        <a class="dropdown-item" href="{{ route('materiasa.index') }}">Materias abiertas</a>
     </div>
 </li>
 <li class="nav-item dropdown">
@@ -80,16 +80,7 @@
             >Tutorias</a
         >
     </li>
-    <li class="nav-item" role="presentation">
-        <select name="" id="">
-        <option value="0">Periodo</option>
-        <option value="1">Ene-Jun-24</option>
-        <option value="2">Ago-Dic-24</option>
-        <option value="3">Ene-Jun-25</option>
-        </select>
-        
-
-    </li>
+    
    
     <li class="nav-item" role="presentation">
         <form action="{{ route('logout') }}" method="post">
